@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Stream - Raiza & Ashish Wedding</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #9CA986 0%, #b8c9a3 50%, #D4A5A5 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  padding: 20px;
+}
+
+.container {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(20px);
+  padding: 60px 40px;
+  border-radius: 30px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  border: 2px solid rgba(255,255,255,0.3);
+}
+
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: 8px;
+  margin-bottom: 30px;
+  text-shadow: 3px 3px 8px rgba(0,0,0,0.5);
+  color: #fff;
+}
+
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  color: #fff;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+}
+
+.icon {
+  font-size: 5rem;
+  margin-bottom: 30px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-weight: 400;
+  color: #fff;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+}
+
+.date-box {
+  background: rgba(255,255,255,0.25);
+  padding: 20px 30px;
+  border-radius: 15px;
+  margin: 30px 0;
+  border: 2px solid rgba(255,255,255,0.4);
+}
+
+.date-box p {
+  margin: 5px 0;
+  font-weight: 600;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  color: #fff;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+}
+
+.back-btn {
+  display: inline-block;
+  background: #fff;
+  color: #9CA986;
+  padding: 15px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 30px;
+  transition: all 0.3s;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.back-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+  background: #f8f8f8;
+}
+
+.back-btn.secondary {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  margin-left: 15px;
+}
+
+.back-btn.secondary:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.note {
+  font-size: 1rem;
+  font-style: italic;
+  margin-top: 30px;
+  opacity: 0.95;
+  color: #fff;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+}
+
+.live-frame {
+  width: 100%;
+  max-width: 800px;
+  height: 450px;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  margin: 30px auto;
+  border: none;
+}
+
+@media(max-width:600px){
+  .container {
+    padding: 40px 25px;
+  }
+  .logo { font-size: 2.5rem; }
+  h1 { font-size: 2rem; }
+  .icon { font-size: 3.5rem; }
+  p { font-size: 1.1rem; }
+  .date-box p { font-size: 1.1rem; }
+  .live-frame { height: 250px; }
+  .back-btn { 
+    display: block; 
+    margin: 15px auto;
+  }
+  .back-btn.secondary {
+    margin-left: auto;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="mainContent">  
+  <h1>Live Stream Coming Soon!</h1>
+  
+  <p>Thank you for your interest in joining us virtually for our special day!</p>
+  
+  <p>The live stream will be available on the day of our wedding ceremony. Please check back here or refresh this page on:</p>
+  
+  <div class="date-box">
+    <p>Monday, 5th January 2026</p>
+    <p>Starting at 10:30 AM</p>
+  </div>
+  
+  <p>We're excited to share this beautiful moment with you, whether you're joining us in person or virtually from around the world.</p>
+  
+  <p class="note">A YouTube live stream link will be activated shortly before the ceremony begins.</p>
+  
+  <a href="index.html" class="back-btn">Back to Wedding Website</a>
+</div>
+
+<script>
+  const weddingStartDate = new Date("2026-01-05T10:30:00+05:30").getTime();
+  const weddingEndDate = new Date("2026-01-05T15:30:00+05:30").getTime(); // Adjust to your actual end time
+  const now = new Date().getTime();
+  
+  const mainContent = document.getElementById('mainContent');
+  
+  // DURING WEDDING - Live Stream Active
+  if (now >= weddingStartDate && now <= weddingEndDate) {
+    mainContent.innerHTML = `      
+      <h1>Live Wedding Ceremony</h1>
+      
+      <p style="font-size: 1.3rem; margin-bottom: 30px;">Join us as we celebrate our special day!</p>
+      
+      <!-- Replace YOUR_YOUTUBE_EMBED_LINK with your actual YouTube embed link -->
+      <iframe 
+        class="live-frame"
+        src="YOUR_YOUTUBE_EMBED_LINK" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+      </iframe>
+      
+      <p style="margin-top: 25px;">Thank you for being part of our beautiful journey!</p>
+      
+      <a href="index.html" class="back-btn secondary">Back to Website</a>
+    `;
+  } 
+  // AFTER WEDDING - Show Thank You / Replay Option
+  else if (now > weddingEndDate) {
+    mainContent.innerHTML = `
+      <div class="icon">💕</div>
+      
+      <h1 style="font-size: 3.5rem; margin-bottom: 25px;">Cheers to Forever!</h1>
+      
+      <p style="font-size: 1.3rem;">Thank you for celebrating with us and being part of our beautiful journey.</p>
+      
+      <div class="date-box">
+        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem;">Raiza & Ashish</p>
+        <p style="font-size: 1.1rem; opacity: 0.9;">Married on Monday, 5th January 2026</p>
+      </div>
+      
+      <p style="font-style: italic; font-size: 1.15rem;">Your love and support meant the world to us. Here's to love, laughter, and happily ever after!</p>
+      
+      <div style="margin-top: 30px;">
+        <a href="index.html" class="back-btn">Back to Wedding Website</a>
+      </div>
+      
+      <p class="note" style="margin-top: 40px;">💒 ✨ Married and loving every moment! ✨ 💒</p>
+    `;
+  }
+  // BEFORE WEDDING - Keep the default "Coming Soon" message (already in HTML)
+</script>
+
+</body>
+</html>
