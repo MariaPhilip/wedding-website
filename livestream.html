@@ -51,15 +51,35 @@ h1 {
   text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
 }
 
-.icon {
-  font-size: 5rem;
+.icon-group {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
   margin-bottom: 30px;
-  animation: pulse 2s infinite;
 }
 
-@keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.1); opacity: 0.8; }
+.icon-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bounce 2s infinite;
+}
+
+.icon-circle:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.icon-circle:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 p {
@@ -88,6 +108,33 @@ p {
   text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
 }
 
+.youtube-btn {
+  display: inline-block;
+  background: #FF0000;
+  color: #fff;
+  padding: 20px 50px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 30px 10px;
+  transition: all 0.3s;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.youtube-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+  background: #CC0000;
+}
+
+.youtube-btn svg {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
 .back-btn {
   display: inline-block;
   background: #fff;
@@ -114,7 +161,7 @@ p {
   background: transparent;
   border: 2px solid #fff;
   color: #fff;
-  margin-left: 15px;
+  margin-left: 0;
 }
 
 .back-btn.secondary:hover {
@@ -130,32 +177,27 @@ p {
   text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
 }
 
-.live-frame {
-  width: 100%;
-  max-width: 800px;
-  height: 450px;
-  border-radius: 15px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-  margin: 30px auto;
-  border: none;
-}
-
 @media(max-width:600px){
   .container {
     padding: 40px 25px;
   }
   .logo { font-size: 2.5rem; }
   h1 { font-size: 2rem; }
-  .icon { font-size: 3.5rem; }
   p { font-size: 1.1rem; }
   .date-box p { font-size: 1.1rem; }
-  .live-frame { height: 250px; }
+  .youtube-btn {
+    font-size: 1rem;
+    padding: 15px 35px;
+    display: block;
+    margin: 15px auto;
+  }
   .back-btn { 
     display: block; 
     margin: 15px auto;
   }
-  .back-btn.secondary {
-    margin-left: auto;
+  .icon-circle {
+    width: 60px;
+    height: 60px;
   }
 }
 </style>
@@ -163,57 +205,63 @@ p {
 <body>
 
 <div class="container" id="mainContent">  
-  <h1>Live Stream Coming Soon!</h1>
+  <h1>Live Stream Ready!</h1>
   
-  <p>Thank you for your interest in joining us virtually for our special day!</p>
+  <p>We're excited to share our special day with you!</p>
   
-  <p>The live stream will be available on the day of our wedding ceremony. Please check back here or refresh this page on:</p>
+  <p>The live stream is all set. Please join us on:</p>
   
   <div class="date-box">
     <p>Monday, 5th January 2026</p>
-    <p>Starting at 11 AM</p>
+    <p>Starting at 11:00 AM IST</p>
   </div>
   
-  <p>We're excited to share this beautiful moment with you, whether you're joining us in person or virtually from around the world.</p>
+  <p>Click the button below to watch the ceremony live on YouTube</p>
   
-  <p class="note">A YouTube live stream link will be activated shortly before the ceremony begins.</p>
+  <a href="https://www.youtube.com/live/hwImmnqgMpw" target="_blank" class="youtube-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+    </svg>
+    Watch Live on YouTube
+  </a>
+  
+  <p class="note">The stream will begin automatically at the ceremony start time</p>
   
   <a href="index.html" class="back-btn">Back to Wedding Website</a>
 </div>
 
 <script>
-  const weddingStartDate = new Date("2026-01-05T11:00:00+05:30").getTime();
-  const weddingEndDate = new Date("2026-01-05T15:30:00+05:30").getTime(); // Adjust to your actual end time
-  const now = new Date().getTime();
+  // Set wedding times in IST (India Standard Time)
+  const weddingStartDate = new Date("2026-01-05T10:45:00+05:30").getTime();
+  const weddingEndDate = new Date("2026-01-05T15:30:00+05:30").getTime();
   
+  const now = new Date().getTime();
   const mainContent = document.getElementById('mainContent');
   
   // DURING WEDDING - Live Stream Active
   if (now >= weddingStartDate && now <= weddingEndDate) {
     mainContent.innerHTML = `      
-      <h1>Live Wedding Ceremony</h1>
+      <h1>The Wedding is Live!</h1>
       
       <p style="font-size: 1.3rem; margin-bottom: 30px;">Join us as we celebrate our special day!</p>
       
-      <!-- Replace YOUR_YOUTUBE_EMBED_LINK with your actual YouTube embed link -->
-      <iframe 
-        class="live-frame"
-        src="YOUR_YOUTUBE_EMBED_LINK" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        allowfullscreen>
-      </iframe>
+      <p>Click below to watch the live ceremony on YouTube</p>
+      
+      <a href="https://www.youtube.com/live/hwImmnqgMpw" target="_blank" class="youtube-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+        </svg>
+        Watch Live Stream Now
+      </a>
       
       <p style="margin-top: 25px;">Thank you for being part of our beautiful journey!</p>
       
       <a href="index.html" class="back-btn secondary">Back to Website</a>
     `;
   } 
-  // AFTER WEDDING - Show Thank You / Replay Option
+  // AFTER WEDDING - Show Thank You Message
   else if (now > weddingEndDate) {
     mainContent.innerHTML = `
-      <div class="icon">💕</div>
-      
       <h1 style="font-size: 3.5rem; margin-bottom: 25px;">Cheers to Forever!</h1>
       
       <p style="font-size: 1.3rem;">Thank you for celebrating with us and being part of our beautiful journey.</p>
@@ -225,11 +273,20 @@ p {
       
       <p style="font-style: italic; font-size: 1.15rem;">Your love and support meant the world to us. Here's to love, laughter, and happily ever after!</p>
       
+      <p style="margin-top: 30px; font-size: 1.1rem;">Missed the ceremony? Watch the recording:</p>
+      
+      <a href="https://www.youtube.com/live/hwImmnqgMpw" target="_blank" class="youtube-btn" style="margin: 20px 10px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+        </svg>
+        Watch Recording on YouTube
+      </a>
+      
       <div style="margin-top: 30px;">
         <a href="index.html" class="back-btn">Back to Wedding Website</a>
       </div>
       
-      <p class="note" style="margin-top: 40px;">💒 ✨ Married and loving every moment! ✨ 💒</p>
+      <p class="note" style="margin-top: 40px;">Married and loving every moment!</p>
     `;
   }
   // BEFORE WEDDING - Keep the default "Coming Soon" message (already in HTML)
